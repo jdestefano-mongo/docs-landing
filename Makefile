@@ -19,8 +19,10 @@ help:
 
 build-temp: style.min.css header.js
 	rm -rf $@
-	mkdir $@
-	cp -p landing.html mongodb-logo.png style.min.css header.js *webfont* $@/
+	mkdir -p $@/_static/fonts
+	cp -p landing.html mongodb-logo.png $@/
+	cp -p style.min.css header.js $@/_static
+	cp -p *webfont* $@/_static/fonts
 
 # Don't grab node_modules unless we have to
 style.min.css: normalize.css style.css header.css
